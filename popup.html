@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MultiLaunch</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-color: #10b981;
+            --accent-hover: #059669;
+            --danger-color: #ef4444;
+        }
+
+        body {
+            width: 320px;
+            margin: 0;
+            padding: 16px;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .header h3 {
+            margin: 0;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            background-color: var(--card-bg);
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border: 1px solid #334155;
+        }
+
+        input {
+            background-color: #0f172a;
+            border: 1px solid #334155;
+            color: white;
+            padding: 6px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        input:focus {
+            outline: 1px solid var(--accent-color);
+        }
+
+        .add-btn {
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            padding: 6px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .link-list {
+            max-height: 180px;
+            overflow-y: auto;
+            margin-bottom: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .link-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            border-radius: 6px;
+            border: 1px solid #334155;
+            overflow: hidden;
+        }
+
+        .link-clickable {
+            flex-grow: 1;
+            padding: 8px 10px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            max-width: 80%;
+            transition: background-color 0.2s;
+        }
+
+        .link-clickable:hover {
+            background-color: #24334d;
+        }
+
+        .link-title {
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .link-url {
+            font-size: 11px;
+            color: var(--text-secondary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .delete-btn {
+            background: none;
+            border: none;
+            color: var(--danger-color);
+            cursor: pointer;
+            font-size: 14px;
+            padding: 12px;
+            transition: background-color 0.2s;
+        }
+
+        .delete-btn:hover {
+            background-color: rgba(239, 68, 68, 0.1);
+        }
+
+        .main-btn {
+            width: 100%;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+        }
+
+        .main-btn:hover {
+            background-color: var(--accent-hover);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h3>🚀 MultiLaunch</h3>
+    </div>
+
+    <div class="form-group">
+        <input type="text" id="title-input" placeholder="Title (e.g., Google)">
+        <input type="text" id="url-input" placeholder="URL (e.g., google.com)">
+        <button class="add-btn" id="add-btn">Add Shortcut</button>
+    </div>
+
+    <div class="link-list" id="link-list"></div>
+
+    <button class="main-btn" id="open-all-btn">Launch All at Once</button>
+
+    <script src="popup.js"></script>
+</body>
+</html>
+
